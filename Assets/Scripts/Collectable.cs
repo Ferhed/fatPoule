@@ -17,7 +17,12 @@ public class Collectable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if(gameObject.tag == "Fruit")
+        {
+            transform.Rotate(new Vector3(0, 100, 0)*Time.deltaTime);
+        }
+
+
 	}
 
     private void OnTriggerEnter2D(Collider2D elementImpactant) {
@@ -27,6 +32,8 @@ public class Collectable : MonoBehaviour {
         }
         
         if (transform.tag == "Fruit") {
+            Debug.Log("Take 1 Point");
+            Destroy(gameObject);
         }
     }
 }

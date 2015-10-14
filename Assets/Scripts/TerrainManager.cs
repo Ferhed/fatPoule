@@ -9,6 +9,7 @@ public class TerrainManager : MonoBehaviour {
     public float imageWidth;
     public List<GameObject> sprites;
 	public List<GameObject> clouds;
+    public Transform player;
 	public float moveSpeed = 5.5f;
 
     // Private attribs
@@ -19,11 +20,9 @@ public class TerrainManager : MonoBehaviour {
 	private GameObject currentCloud;
 	private GameObject nextCloud;
     private List<GameObject> allSprites = new List<GameObject>();
-    private Transform player;
 
     // Use this for initialization
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         imageWidth /= 100;
 		currentCloud = clouds[Random.Range(0,clouds.Count)];
 		currentCloud.transform.position = new Vector3(player.transform.position.x+13,Random.Range(3,5),0);

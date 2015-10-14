@@ -14,6 +14,7 @@ public class PlayerControls : MonoBehaviour {
 	public float timeToAttack = 1f;
 	public float hitDistance = 2f;
     public float jumpDelay = 1f;
+	public float hauteurSaut = 500f;
 
     public float distPouletPlayer = 3f;
 
@@ -29,53 +30,41 @@ public class PlayerControls : MonoBehaviour {
     private float offsetGroundRay = 1.5f;
     private float delay = 1;
     private float timeElapsed;
-    private float currentJumpDelay = 0f;
-    private bool needJump = false;
 
     private bool isGrounded = false;
     private Rigidbody2D rigidbody;
 
     private float timeToAccelerate = 0;
 
-    private Animator playerAnimator;
 
-    // Getter setter
-    public float CurrentSpeed
-    {
-        get
-        {
-            return currentSpeed;
-        }
-    }
+    private float currentJumpDelay = 0f;
+    private bool needJump = false;
 
     // Use this for initialization
     void Start () {
         timeElapsed = Time.fixedTime;
         rigidbody = GetComponent<Rigidbody2D>();
-        playerAnimator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         /* Petit tricks du sinus
         float ratio = (timeElapsed - Time.fixedTime) / delay;
         Debug.Log(Mathf.Sin(ratio));*/
         // random = increment du tableau, nombre pair * i, nombre impair * -i
 
-        /*for(int i = 0; i < pouletTab.Count; i++)
+		/*for(int i = 0; i < pouletTab.Count; i++)
 		{
 			pouletTab[i].transform.position = new Vector2(transform.position.x + distPouletPlayer + pouletTab[i].GetComponent<ChickenControl>().offSetX , pouletTab[i].transform.position.y);
 			
 		}*/
 
 
-        if (timeToAccelerate != 0.0f)
+        if(timeToAccelerate != 0.0f)
         {
             timeToAccelerate = Mathf.Max(0f, timeToAccelerate - Time.deltaTime);
             currentSpeed = multiplicateurSpeed;
-        } else {
-            currentSpeed = 1.0f;
         }
 
 		if(currentAttack != 0.0f)
@@ -89,24 +78,16 @@ public class PlayerControls : MonoBehaviour {
         }
 
         if (currentJumpDelay == 0f && needJump == true) {
-            //Animation
-            Debug.Log("TriggerAnimation");
-            if (currentSpeed <= 1f) { 
-                playerAnimator.SetTrigger("Jump");
-            }
-
-            //Jump
-            rigidbody.AddForce(new Vector2(0, 500));
+			rigidbody.AddForce(new Vector2(0, hauteurSaut));
             needJump = false;
             currentJumpDelay = jumpDelay;
         }
 
 
-        playerAnimator.SetFloat("Speed", currentSpeed);
+
        this.Move(speed * currentSpeed, transform.position.y,transform.position.z);
 
-       // Ne nous sert plus à rien 
- 
+        currentSpeed = 1.0f;
 	}
 
 	public void button1 ()
@@ -117,13 +98,16 @@ public class PlayerControls : MonoBehaviour {
 	{
 		if(isGrounded && currentJumpDelay == 0)
 		{
-            Debug.Log("Need Jump");
             currentJumpDelay = jumpDelay;
             needJump = true;			
 			for (int i = 0; i < pouletTab.Count; i++)
 			{
-				if(pouletTab[i]!=null)
-					pouletTab[i].GetComponent<ChickenControl>().jump(Random.Range(0f, 0.1f));
+                ChickenControl chickenControl = pouletTab[i].GetComponent<ChickenControl>();
+                if (pouletTab[i]!=null)
+                {
+                    chickenControl.jump(Mathf.Abs((chickenControl.offSetX - 1) / 10));
+                }
+					
 			}
 		}
 	}
@@ -156,8 +140,8 @@ public class PlayerControls : MonoBehaviour {
         }
 
         //Apply move
-        //this.Move((speed * currentSpeed) * Time.deltaTime, 0, 0);
-        //currentSpeed = 1.0f;
+        this.Move((speed * currentSpeed) * Time.deltaTime, 0, 0);
+        currentSpeed = 1.0f;
     }
 
     private void Attack(){
@@ -166,7 +150,6 @@ public class PlayerControls : MonoBehaviour {
 		{
 			LayerMask persoMask = 1 << 8;
 			GameObject currentChicken = chooseChicken();
-            currentChicken.GetComponent<ChickenControl>().attackAnimation();
 			Collider2D[] inFront = Physics2D.OverlapCircleAll(currentChicken.transform.position + Vector3.right*hitDistance, 2f, persoMask);
 			for (int j = 0; j < inFront.Length; j++)
 			{

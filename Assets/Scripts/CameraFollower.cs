@@ -4,17 +4,16 @@ using System.Collections;
 public class CameraFollower : MonoBehaviour {
 
     // Public Attribs
+    public Transform elementToFollow;
     public float zoomInOut;
     public float offSetX = 0f;
 
     // Private Attribs
-    private Transform elementToFollow;
     private Vector2 offsetPosition;
     private Vector3 relativePosition;
 
 	// Use this for initialization
 	void Start () {
-        elementToFollow =  GameObject.FindGameObjectWithTag("Player").transform;
         offsetPosition = new Vector3(elementToFollow.position.x-offSetX, elementToFollow.position.y, zoomInOut);
         transform.position = offsetPosition;
     }

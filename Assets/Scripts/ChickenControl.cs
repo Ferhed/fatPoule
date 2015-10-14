@@ -11,10 +11,7 @@ public class ChickenControl : MonoBehaviour {
     private float startValor;
     private float timeElapsed;
     private GameObject player;
-    private PlayerControls playerControls;
-
-
-    private Animator chickenAnimator;
+    private float rdmScale;
 
     // public Attribs
     public float offSetX = 0;
@@ -25,11 +22,9 @@ public class ChickenControl : MonoBehaviour {
         startValor = Random.Range(0, 10);
         timeElapsed = Time.time;
         player = GameObject.FindGameObjectWithTag("Player");
-        playerControls  = player.GetComponent<PlayerControls>();
 
-        chickenAnimator = GetComponent<Animator>();
 
-        float rdmScale = Random.Range(0.8f, 1.2f);
+        rdmScale = Random.Range(0.8f, 1.2f);
         transform.localScale *= rdmScale;
 	}
 	
@@ -42,21 +37,16 @@ public class ChickenControl : MonoBehaviour {
 
         if (jumpDelay == 0.0f && needJump && isGrounded)
         {
-            if (playerControls.CurrentSpeed <= 1f) {
-                chickenAnimator.SetTrigger("Jump");
-            }
             needJump = false;
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, Random.Range(0, 200) + 400));
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, player.GetComponent<PlayerControls>().hauteurSaut*((1-rdmScale)+1)));
         }
 
         float ratio = (timeElapsed - Time.fixedTime);
         offSetX = Mathf.Sin(ratio + startValor);
 
-        if (isAlive)
-        {
-            chickenAnimator.SetFloat("Speed", playerControls.CurrentSpeed);
-            transform.position = new Vector2(player.transform.position.x + playerControls.distPouletPlayer + offSetX, transform.position.y);
-        }
+        if(isAlive)
+            transform.position = new Vector2(player.transform.position.x + player.GetComponent<PlayerControls>().distPouletPlayer + offSetX, transform.position.y);
+
     }
 
     void FixedUpdate() {
@@ -72,10 +62,6 @@ public class ChickenControl : MonoBehaviour {
         {
             isGrounded = false;
         }
-    }
-
-    public void attackAnimation() {
-        chickenAnimator.SetTrigger("Attack");
     }
 
     public void killIt()
