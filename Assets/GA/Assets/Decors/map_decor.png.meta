@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: bea4817d9ba01ac42b07c25cb8a3186f
+timeCreated: 1444758702
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: map_decor_0
+    21300002: map_decor_1
+    21300004: map_decor_2
+    21300006: map_decor_3
+    21300008: map_decor_4
+    21300010: map_decor_5
+    21300012: map_decor_6
+    21300014: map_decor_7
+    21300016: map_decor_8
+    21300018: map_decor_9
+    21300020: map_decor_10
+    21300022: map_decor_11
+    21300024: map_decor_12
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: map_decor_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 854
+        width: 141
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_1
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 854
+        width: 302
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_2
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 854
+        width: 325
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_3
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 425
+        width: 244
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_4
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 698
+        width: 74
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_5
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 272
+        width: 303
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_6
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 158
+        width: 169
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_7
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 533
+        width: 75
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_8
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 216
+        width: 127
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_9
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 8
+        width: 222
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_10
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 12
+        width: 165
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_11
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 30
+        width: 121
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: map_decor_12
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 15
+        width: 173
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
